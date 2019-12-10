@@ -20,6 +20,9 @@ params:
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+library(gapminder)
+library(tidyverse)
+library(glue)
 ```
 
 ```{r source functions, include = FALSE}
