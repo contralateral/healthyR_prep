@@ -1,12 +1,11 @@
 printLE <- function(gap_country, gap_year){
   
-<<<<<<< HEAD
   glue("The life expectancy of {gap_country} in {gap_year} was {gapminder %>% 
        filter(country == gap_country, year == gap_year) %>% 
        select(lifeExp)} years, compared to the average for all countries, {gapminder %>% 
        filter(year == gap_year) %>% 
        summarise(avg = mean(lifeExp))}.")
-  }
+}
 # 
 # 
 # # Sentence
@@ -17,17 +16,14 @@ printLE <- function(gap_country, gap_year){
 # gapminder %>%  summarise(avg=mean(lifeExp)) -> avg_LifeExp
 # 
 # glue('The life expectancy of {query} in {query2} was {lifeExpQ$lifeExp} years, compared to the average for all countries, {avg_LifeExp}.This is the xxxth percentile.')
-=======
- LE_country <- gapminder %>% 
-    filter(country == gap_country, year == gap_year)%>% 
-   select(lifeExp)
- 
+LE_country <- gapminder %>% 
+  filter(country == gap_country, year == gap_year)%>% 
+  select(lifeExp)
+
 LE_avg <- gapminder %>% 
   filter(year == gap_year) %>% 
   summarise(avg = mean(lifeExp))
-  
-  glue::glue("The life expectancy of {gap_country} in {gap_year} was {LE_country} years, 
-compared to the average for all countries, {LE_avg}.")
-  }
 
->>>>>>> c3ebaffb70b506ac06ca8a200222dc32281e23d1
+glue::glue("The life expectancy of {gap_country} in {gap_year} was {LE_country} years, 
+compared to the average for all countries, {LE_avg}.")
+}

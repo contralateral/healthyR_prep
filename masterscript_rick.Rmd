@@ -56,10 +56,9 @@ getDeltaLE(params$country)
 ```{r eval = T}
 library(ggplot2)
 
-
-  radioButtons("shape", label = "Circle:",
-               c("Filled" = 16,
-                 "Hollow" = 1))
+radioButtons("shape", label = "Circle:",
+             c("Filled" = 16,
+               "Hollow" = 1))
 
 ```
 
@@ -76,7 +75,7 @@ renderPlot({
 
 ```{r echo = FALSE}
 selectInput("inputCountry", label = "Country:",
-              choices = levels(gapminder$country), selected = "Germany")
+            choices = levels(gapminder$country), selected = "Germany")
 ```
 
 ```{r echo = FALSE}
