@@ -23,9 +23,8 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 ```{r source functions, include = FALSE}
-source("./R/plotCountry.R")
-source("./R/getDeltaLE.R")
-source("./R/printLE.R")
+list.files("./R/", full.names = TRUE) %>% 
+  walk(source)
 ```
 
 

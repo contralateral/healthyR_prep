@@ -4,9 +4,11 @@ library(tidyverse)
 library(glue)
 
 #Include R-Files
-source("R/plotCountry.R")
-source("R/getDeltaLE.R")
-source("R/printLE.R")
+
+# Walk if you don't want an output otherwise map
+
+list.files("./R/", full.names = TRUE) %>% 
+  walk(source)
 
 # Include Data
 data("gapminder")
