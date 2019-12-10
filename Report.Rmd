@@ -1,0 +1,46 @@
+---
+title: "Life Expectancy in `r params$country` in `r params$year`"
+author: "Katja Nordhoff"
+date: "`r format(Sys.time(), '%d\\\\. %B %Y')`"
+output: 
+  html_document:
+    code_folding: show
+    number_sections: yes
+    toc: yes
+    toc_depth: 3
+    toc_float: yes
+params: 
+  country: Germany
+  year: 2007
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r source functions, include = FALSE}
+source("./R/plotCountry.R")
+source("./R/getDeltaLE.R")
+source("./R/printLE.R")
+```
+
+
+```{r initialise data, include = FALSE}
+data("gapminder")
+```
+
+```{r plot}
+plotCountry(params$country)
+```
+
+
+```{r life expectancy}
+printLE(params$country, params$year)
+```
+
+```{r delta LE}
+getDeltaLE(params$country)
+```
+
+
+
