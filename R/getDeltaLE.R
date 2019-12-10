@@ -1,9 +1,5 @@
-library(tidyverse)
-library(gapminder)
-# Query ----
 # Query	getDeltaLE(name = NULL) 	
 # Given a country, return the increase in years of life expectancy between 1952 and 2007.
-
 getDeltaLE <- function(gap_country){
   
   exp2007 <- gapminder %>% 
@@ -15,5 +11,3 @@ getDeltaLE <- function(gap_country){
     dplyr::select(lifeExp)
   return(exp2007$lifeExp - exp1952$lifeExp)
 }
-
-getDeltaLE("Afghanistan")

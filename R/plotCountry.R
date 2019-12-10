@@ -1,10 +1,3 @@
-# Plot ----
-library(gapminder)
-library(tidyverse)
-
-data("gapminder")
-
-
 # Test as factor
 # gapminder %>% ggplot(aes(x = log10(gdpPercap), y = lifeExp, size = pop))+
 #   geom_point(alpha = .25)+
@@ -27,9 +20,6 @@ gapminder %>% ggplot(aes(x = log10(gdpPercap), y = lifeExp, size = pop))+
   geom_point(data = gap_country, aes(color = year))
   
 }
-
-plotCountry("Germany")
-
 
 # gap_D %>% ggplot(aes(x = log10(gdpPercap), y = lifeExp, size = pop, color = year))+
   # geom_point(alpha = .25)+

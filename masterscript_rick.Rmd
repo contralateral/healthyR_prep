@@ -1,0 +1,86 @@
+---
+title: "`r params$country`"
+author: "Rick Scavetta"
+date: "03/09/2018"
+runtime: shiny
+output: html_document
+params:
+  country: "Germany"
+  year: 2007
+---
+
+```{r setup, include=FALSE}
+
+# load packages
+library(tidyverse)
+library(gapminder)
+library(glue)
+
+knitr::opts_chunk$set(echo = FALSE)
+
+# Initialize all functions in the R subdirectory
+# cycle over each value in myFiles?
+# use purrr
+list.files(path = "./R", full.names = TRUE) %>% 
+  walk(source)
+
+
+# Initialize data
+data("gapminder")
+
+```
+
+# Static plots {.tabset}
+
+## Section 1.1
+
+```{r makePlots}
+plotCountry(params$country)
+```
+
+## Secion 2.1
+
+```{r getLE}
+# Query ----
+getDeltaLE(params$country)
+```
+
+## Secion 2.2
+
+`r printLE(params$country, params$year)`
+
+# Interactive Example {.tabset}
+
+## Choose Symbol
+
+```{r eval = T}
+library(ggplot2)
+
+
+  radioButtons("shape", label = "Circle:",
+               c("Filled" = 16,
+                 "Hollow" = 1))
+
+```
+
+```{r eval = T}
+renderPlot({
+  ggplot(mtcars, aes(mpg,wt)) +
+    geom_point(shape = as.numeric(input$shape), alpha = 0.75, size = 10)
+})
+```
+
+## Example
+
+### Here is a Shiny widget
+
+```{r echo = FALSE}
+selectInput("inputCountry", label = "Country:",
+              choices = levels(gapminder$country), selected = "Germany")
+```
+
+```{r echo = FALSE}
+renderPlot({
+  plotCountry(input$inputCountry)
+})
+```
