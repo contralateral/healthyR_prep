@@ -20,10 +20,14 @@ params:
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r attach packages}
 library(gapminder)
 library(tidyverse)
 library(glue)
 ```
+
 
 ```{r source functions, include = FALSE}
 list.files("./R/", full.names = TRUE) %>% 
