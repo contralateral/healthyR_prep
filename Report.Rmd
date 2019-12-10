@@ -1,17 +1,21 @@
 ---
 title: "Life Expectancy in `r params$country` in `r params$year`"
-author: "Katja Nordhoff"
+author: "`r params$author`"
 date: "`r format(Sys.time(), '%d\\\\. %B %Y')`"
-output: 
+output:
+  pdf_document:
+    toc: yes
+    toc_depth: '3'
   html_document:
     code_folding: show
     number_sections: yes
     toc: yes
     toc_depth: 3
     toc_float: yes
-params: 
+params:
   country: Germany
   year: 2007
+  author: "MZ"
 ---
 
 ```{r setup, include=FALSE}
