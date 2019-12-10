@@ -9,10 +9,11 @@ getDeltaLE <- function(gap_country){
   exp2007 <- gapminder %>% 
     dplyr::filter(country == gap_country, year == 2007) %>% 
     dplyr::select(lifeExp)
+  
   exp1952 <- gapminder %>% 
     dplyr::filter(country == gap_country, year == 1952) %>% 
     dplyr::select(lifeExp)
-  return(exp2007-exp1952)
+  return(exp2007$lifeExp - exp1952$lifeExp)
 }
 
 getDeltaLE("Afghanistan")
