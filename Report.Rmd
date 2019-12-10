@@ -1,0 +1,56 @@
+---
+title: "Life Expectancy in `r params$country` in `r params$year`"
+author: "`r params$author`"
+date: "`r format(Sys.time(), '%d\\\\. %B %Y')`"
+output:
+  pdf_document:
+    toc: yes
+    toc_depth: '3'
+  html_document:
+    code_folding: show
+    number_sections: yes
+    toc: yes
+    toc_depth: 3
+    toc_float: yes
+params:
+  country: Germany
+  year: 2007
+  author: "MZ"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r attach packages}
+library(gapminder)
+library(tidyverse)
+library(glue)
+```
+
+
+```{r source functions, include = FALSE}
+list.files("./R/", full.names = TRUE) %>% 
+  walk(source)
+```
+
+
+```{r initialise data, include = FALSE}
+data("gapminder")
+```
+
+```{r plot}
+plotCountry(params$country)
+```
+
+
+```{r life expectancy}
+printLE(params$country, params$year)
+```
+
+```{r delta LE}
+getDeltaLE(params$country)
+```
+
+
+
